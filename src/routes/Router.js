@@ -1,18 +1,24 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "../pages/HomePage/HomePage";
-import LoginPage from "../pages/LoginPage/LoginPage";
-import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
-import SignupPage from "../pages/SignupPage/SignupPage";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {
+  LoginPage,
+  SignupPage,
+  FeedPage,
+  RecipeDetailPage,
+  AddRecipePage,
+} from '../pages';
+import { Header } from '../components';
 
-export default function Router() {
+export const Router = () => {
   return (
     <BrowserRouter>
+        <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/feed" element={<FeedPage />} />
+        <Route path="/add-recipe" element={<AddRecipePage />} />
+        <Route path="/recipe/:id" element={<RecipeDetailPage />} />
       </Routes>
     </BrowserRouter>
   );
-}
+};
